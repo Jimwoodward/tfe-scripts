@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "type": "users",
+      "id": "alexreidy"
+    },
+    {
+      "type": "users",
+      "id": "danprice"
+    },
+    {
+      "type": "users",
+      "id": "estenborg"
+    },
+    {
+      "type": "users",
+      "id": "sarnett"
+    },
+    {
+      "type": "users",
+      "id": "zacbir"
+    }
+  ]
+}

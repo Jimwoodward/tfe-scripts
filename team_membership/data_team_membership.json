@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "type": "users",
+      "id": "jason-kowalewski"
+    },
+    {
+      "type": "users",
+      "id": "jking13"
+    },
+    {
+      "type": "users",
+      "id": "sirzach"
+    },
+    {
+      "type": "users",
+      "id": "snagacarl"
+    },
+    {
+      "type": "users",
+      "id": "snagafritz"
+    },
+    {
+      "type": "users",
+      "id": "vishuma"
+    }
+  ]
+}
