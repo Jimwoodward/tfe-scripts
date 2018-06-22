@@ -4,4 +4,6 @@ from workspace import list_workspace_access
 
 workspace_id = str(sys.argv[1])
 token = 'Bearer '+os.environ['TOKEN']
-list_workspace_access(token, workspace_id)
+
+for workspace_access in list_workspace_access(token, workspace_id):
+    print(workspace_access)
