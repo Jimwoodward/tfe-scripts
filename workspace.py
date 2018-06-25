@@ -6,13 +6,13 @@ def create_workspace_ids_list(token):
     grab_next = True
     page = 1
     headers = {'Authorization': token}
+    workspace_list = []
 
     while grab_next:
         workspace_ids_parameters = {'page[size]': '100', 'page[number]': page}
         workspace_ids_response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=workspace_ids_parameters)
         response_payload = workspace_ids_response.json()
 
-        workspace_list = []
         for workspace in response_payload['data']:
             workspace_list.append(workspace)
 
@@ -21,29 +21,19 @@ def create_workspace_ids_list(token):
             grab_next = False
 
     end = time.time()
-    print(end - begin)
+    print('create_workspace_ids_list runtime: {}'.format(end-begin))
     return workspace_list
 
-def list_workspace_ids(token, human_readable):
-    headers = {'Authorization': token}
-    parameters = {'page[size]': '100', 'page[number]': '1'}
-    response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=parameters)
-    total_pages=response.json()['meta']['pagination']['total-pages']
-
+def list_workspace_ids(token, human_readable, workspaces_list):
+    begin = time.time()
     if human_readable == 'True':
-        for pages in range(1, total_pages+1):
-            parameters = {'page[size]': '100', 'page[number]':pages}
-            response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=parameters)
-
-            for workspace in response.json()['data']:
-                yield 'Team name: {} ::::: Workspace id: {}'.format(workspace['attributes']['name'], workspace['id'])
+        for workspace in workspaces_list:
+            yield 'Workspace name: {} ::::: Workspace id: {}'.format(workspace['attributes']['name'], workspace['id'])
     elif human_readable == 'False':
-        for pages in range(1, total_pages+1):
-            parameters = {'page[size]': '100', 'page[number]':pages}
-            response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=parameters)
-
-            for workspace in response.json()['data']:
-                yield workspace["id"]
+        for workspace in workspaces_list:
+            yield workspace['id']
+    end = time.time()
+    print('list_workspace_ids runtime: {}'.format(end-begin))
 
 def list_workspace_access(token, workspace_id, human_readable):
     headers = {'Authorization': token}
