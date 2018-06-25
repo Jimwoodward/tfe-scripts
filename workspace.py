@@ -1,4 +1,28 @@
 import requests
+import time
+
+def create_workspace_ids_list(token):
+    begin = time.time()
+    grab_next = True
+    page = 1
+    headers = {'Authorization': token}
+
+    while grab_next:
+        workspace_ids_parameters = {'page[size]': '100', 'page[number]': page}
+        workspace_ids_response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=workspace_ids_parameters)
+        response_payload = workspace_ids_response.json()
+
+        workspace_list = []
+        for workspace in response_payload['data']:
+            workspace_list.append(workspace)
+
+        page = response_payload['meta']['pagination']['next-page']
+        if page is None:
+            grab_next = False
+
+    end = time.time()
+    print(end - begin)
+    return workspace_list
 
 def list_workspace_ids(token, human_readable):
     headers = {'Authorization': token}
