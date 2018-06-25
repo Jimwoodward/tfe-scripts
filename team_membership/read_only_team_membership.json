@@ -26,10 +26,6 @@
     },
     {
       "type": "users",
-      "id": "alishiajenkins"
-    },
-    {
-      "type": "users",
       "id": "daniel-amerson"
     },
     {
@@ -58,7 +54,7 @@
     },
     {
       "type": "users",
-      "id": "kyle-peacock"
+      "id": "kylepeacock"
     },
     {
       "type": "users",
@@ -146,10 +142,6 @@
     },
     {
       "type": "users",
-      "id": "fordprior"
-    },
-    {
-      "type": "users",
       "id": "hlsb"
     },
     {
@@ -195,6 +187,10 @@
     {
       "type": "users",
       "id": "Xetoris"
+    },
+    {
+      "type": "users",
+      "id": "jimwoodward"
     }
   ]
 }
