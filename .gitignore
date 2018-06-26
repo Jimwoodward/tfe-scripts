@@ -1,3 +1,4 @@
 team_membership/*
 __pycache__/*
 permissions/*
+*.txt
