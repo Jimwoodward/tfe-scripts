@@ -1,4 +1,6 @@
 team_membership/*
-*/__pycache__/*
+__pycache__
 permissions/*
 *.txt
+*.egg-info
+Pipfile.lock
