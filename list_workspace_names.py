@@ -1,20 +1,6 @@
-import requests
-import os
+from workspace import create_workspace_ids_list, list_workspace_id_verbose
 
-token = 'Bearer '+os.environ['TOKEN']
-headers = {'Authorization': token}
+workspaces_list = create_workspace_ids_list()
 
-parameters = {'page[size]': '100', 'page[number]': '1'}
-response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=parameters)
-file = open("workspaces.txt", "w")
-total_pages=response.json()['meta']['pagination']['total-pages']
-
-
-for pages in range(1, total_pages+1):
-    parameters = {'page[size]': '100', 'page[number]': pages}
-    response = requests.get('https://app.terraform.io/api/v2/organizations/snag/workspaces', headers=headers, params=parameters)
-
-    for workspace in response.json()['data']:
-        file.write(workspace['attributes']['name']+'\n')
-
-file.close()
+for workspace_id in list_workspace_id_verbose(workspaces_list):
+    print(workspace_id)

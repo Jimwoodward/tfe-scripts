@@ -1,5 +1,4 @@
-from workspace import create_workspace_ids_list
-from workspace import list_workspace_id
+from workspace import create_workspace_ids_list, list_workspace_id
 
 workspaces_list = create_workspace_ids_list()
 
