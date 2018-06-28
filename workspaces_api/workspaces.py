@@ -32,26 +32,3 @@ def list_workspace_id_verbose(workspaces_list):
 def list_workspace_id(workspaces_list):
     for workspace in workspaces_list:
         yield workspace['id']
-
-#def list_workspace_access(token, workspace_id, human_readable, workspaces_list):
-    # headers = {'Authorization': token}
-    # team_workspaces_parameters = {'filter[workspace][id]': '{}'.format(workspace_id)}
-    # team_workspaces_response = requests.get('https://app.terraform.io/api/v2/team-workspaces', headers=headers, params=team_workspaces_parameters)
-    # response_payload = team_workspaces_response.json()
-
-    # if human_readable == 'False':
-    #     yield workspace_id
-    #     for teams in response_payload['data']:
-    #         yield teams['relationships']['team']['data']['id']
-
-    # elif human_readable == 'True':
-    #     for workspace in workspaces_list:
-    #         if workspace['id'] == workspace_id:
-    #             yield '{} ::::: Workspace name'.format(workspace['attributes']['name'])
-    #
-    #     for teams in response_payload['data']:
-    #         yield teams['relationships']['team']['links']['related'].split('/')[4]+' ::::: '+teams['relationships']['team']['data']['id']
-
-    # elif human_readable == 'Raw':
-    #     yield workspace_id
-    #     yield response_payload
