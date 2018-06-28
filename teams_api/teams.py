@@ -17,7 +17,8 @@ def list_team_members(team_id):
     response_payload = call_teams()
 
     for team in response_payload['data']:
-        print('blah')
-
-# def list_team_ids():
+        if team_id == team['id']:
+            print(team_id)
+            for users in team['relationships']['users']['data']:
+                yield users['id']
 
