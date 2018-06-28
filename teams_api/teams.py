@@ -7,16 +7,17 @@ def call_teams():
     response_payload = teams_response.json()
     return response_payload
 
-# def list_team_names():
-#     response_payload = call_teams()
+def list_team_names():
+    response_payload = call_teams()
 
-#     for team in response_payload['data']:
-#         yield team['attributes']['name']
+    for team in response_payload['data']:
+        yield team['attributes']['name']
 
-# def list_team_members(team_id):
-#     response_payload = call_teams()
+def list_team_members(team_id):
+    response_payload = call_teams()
 
-#     for team in response_payload['data']
+    for team in response_payload['data']:
+        print('blah')
 
 # def list_team_ids():
 
