@@ -17,7 +17,7 @@ def list_workspace_access_verbose(workspaces_list, workspace_id):
         if workspace['id'] == workspace_id:
             yield '{} : Workspace name ::::: {} : Workspace id'.format(workspace['attributes']['name'], workspace_id)
     for teams in response_payload['data']:
-        yield teams['relationships']['team']['links']['related'].split('/')[4]+' ::::: '+teams['relationships']['team']['data']['id']
+        yield '{} : Team name ::::: {} : Team id'.format(teams['relationships']['team']['links']['related'].split('/')[4], teams['relationships']['team']['data']['id'])
 
 def list_workspace_access(workspace_id):
     response_payload = call_team_workspaces(workspace_id)
