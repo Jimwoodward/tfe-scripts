@@ -22,3 +22,14 @@ def list_team_members(team_id):
             for users in team['relationships']['users']['data']:
                 yield users['id']
 
+def list_team_ids():
+    response_payload = call_teams()
+
+    for team in response_payload['data']:
+        print(team['id'])
+
+def list_teams_verbose():
+    response_payload = call_teams()
+
+    for team in response_payload['data']:
+        print('Team name: {}'.format(team['attributes']['name'])+' ::::: '+'Team id: {}'.format(team['id']))

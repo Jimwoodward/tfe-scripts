@@ -1,6 +1,3 @@
-from teams import call_teams
+from teams import list_team_ids
 
-response_payload = call_teams()
-
-for team in response_payload['data']:
-    print('Team name: {}'.format(team['attributes']['name'])+' ::::: '+'Team id: {}'.format(team['id']))
+list_team_ids()
