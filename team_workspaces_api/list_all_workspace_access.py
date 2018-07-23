@@ -3,6 +3,7 @@ from team_workspaces import list_workspace_access_verbose
 
 workspaces_list = create_workspace_ids_list()
 
+# List all the workspaces in our organization, the teams that have access to each workspace and the level of access each team has to each workspace
 for workspace_id in list_workspace_id(workspaces_list):
     for results in list_workspace_access_verbose(workspaces_list, workspace_id):
         print(results)

@@ -3,6 +3,8 @@ permissions/
 team_membership/
 team_workspace_access/
 Pipfile.lock
+*.json
+*/*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
